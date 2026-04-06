@@ -479,7 +479,8 @@ const UI = {
       </div>`;
     el.addEventListener('click', e => { if (e.target === el) el.style.display = 'none'; });
     document.body.appendChild(el);
-  };
+  }
+};
 
 // ── Gestionar opciones de config (eliminar con ✕) ─────────────────────────
 function abrirGestionOpciones(clave, titulo, listaActual, onGuardar) {
