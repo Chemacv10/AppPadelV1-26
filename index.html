@@ -509,9 +509,8 @@ async function init() {
     const { data: todosLosTorneos } = await _sb.from('torneos').select('id,tipo').eq('escuela_id', Store.escuelaId);
     const ids = (todosLosTorneos||[]).map(t=>t.id);
 
-    const [escuelaRes, semanasRes, torneosRes, partidosRes, alumnosRes, ejerciciosRes, clasesRes, gruposRes] = await Promise.all([
+    const [escuelaRes, torneosRes, partidosRes, alumnosRes, ejerciciosRes, clasesRes, gruposRes] = await Promise.all([
       _sb.from('escuelas').select('nombre').eq('id', Store.escuelaId).single(),
-      _sb.from('semanas_pista').select('*, bloques_pista(*)').eq('escuela_id', Store.escuelaId).order('fecha_inicio'),
       _sb.from('torneos').select('*').eq('escuela_id', Store.escuelaId).order('fecha',{ascending:false}).limit(3),
       ids.length ? _sb.from('partidos').select('pareja_a,pareja_b,resultado_a,resultado_b').in('torneo_id', ids) : { data:[] },
       _sb.from('alumnos').select('id').eq('escuela_id', Store.escuelaId),
