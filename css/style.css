@@ -478,11 +478,12 @@ nav, .nav {
 .kpi.gris    { background: #f8fafc; } .kpi.gris .kpi-val    { color: #475569; }
 
 .bar-section { padding: 0 11px 10px; }
-.bar-row     { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.bar-row     { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
 .bar-label   { font-size: 10px; font-weight: 800; color: #475569; min-width: 80px; }
-.bar-track   { flex: 1; height: 8px; background: #f1f5f9; border-radius: 10px; overflow: hidden; }
-.bar-fill    { height: 100%; border-radius: 10px; transition: width .4s; }
-.bar-val     { font-size: 10px; font-weight: 900; color: var(--texto); min-width: 30px; text-align: right; }
+.bar-track   { flex: 1; height: 18px; background: #f1f5f9; border-radius: 8px; overflow: hidden; position: relative; }
+.bar-fill    { height: 100%; border-radius: 8px; transition: width .45s cubic-bezier(.4,0,.2,1); position: relative; }
+.bar-val     { font-size: 10px; font-weight: 900; color: var(--texto); min-width: 26px; text-align: right; }
+.bar-pct     { font-size: 10px; font-weight: 700; color: #94a3b8; min-width: 32px; text-align: right; }
 
 /* ── Cobros ──────────────────────────────────── */
 .tipos-row {

@@ -304,8 +304,10 @@ function editarSemana(id, numPistasActual, fechaInicio){
   // Fecha bloqueada — solo muestra, no se puede navegar
   actualizarPreviewSemana(fechaInicio);
   document.querySelectorAll('#se-fecha-wrap button').forEach(b=>b.style.display='none');
-  document.getElementById('se-mes-nsel').style.display='none';
-  document.getElementById('se-anio-nsel').style.display='none';
+  const mesNsel = document.getElementById('se-mes-nsel');
+  const anioNsel = document.getElementById('se-anio-nsel');
+  if(mesNsel) mesNsel.style.display='none';
+  if(anioNsel) anioNsel.style.display='none';
   document.getElementById('se-pistas').value = numPistasActual;
   document.getElementById('se-pistas').onchange = function(){
     const nuevo = parseInt(this.value);
@@ -359,8 +361,10 @@ function abrirNuevaSemana(){
   document.getElementById('se-titulo').textContent='Nueva semana';
   document.getElementById('se-btn-guardar').textContent='✓ Crear semana';
   document.querySelectorAll('#se-fecha-wrap button').forEach(b=>b.style.display='');
-  document.getElementById('se-mes-nsel').style.display='';
-  document.getElementById('se-anio-nsel').style.display='';
+  const mesNselN = document.getElementById('se-mes-nsel');
+  const anioNselN = document.getElementById('se-anio-nsel');
+  if(mesNselN) mesNselN.style.display='';
+  if(anioNselN) anioNselN.style.display='';
   document.getElementById('se-pistas').onchange=null;
   document.getElementById('se-aviso-reducir').style.display='none';
   document.getElementById('se-pistas').value='3';

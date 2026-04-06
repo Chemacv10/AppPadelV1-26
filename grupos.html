@@ -574,7 +574,7 @@ function renderLista(grupos) {
         ${renderAlumnos(g.id)}
         ${g.importe_mensual > 0 ? `<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:9px;padding:8px 11px;font-size:12px;font-weight:800;color:#1e40af;margin-bottom:8px">💶 Cuota mensual: <strong>${(+g.importe_mensual).toFixed(2)} €</strong></div>` : ''}
         <div class="abtns">
-          ${g.dias && g.hora_inicio ? `<button class="abtn" style="border-color:#16a34a;color:#16a34a" onclick="abrirGenerarMes(${JSON.stringify(g).replace(/"/g,'&quot;')})">📅 Generar mes</button>` : ''}
+          ${g.dias && g.hora_inicio ? `<button class="abtn" style="border-color:#16a34a;color:#16a34a" onclick="abrirGenerarMes(${JSON.stringify(g).replace(/"/g,'&quot;')})"><img src="icons/clases.png" style="width:15px;height:15px;object-fit:contain;vertical-align:middle;margin-right:3px">Generar mes</button>` : ''}
           <button class="abtn prim" onclick="abrirEditar(${JSON.stringify(g).replace(/"/g,'&quot;')})">✏️ Editar</button>
           <button class="abtn dang" onclick="confirmarEliminar('${g.id}','${g.nombre.replace(/'/g,"\\'")}')">🗑 Eliminar</button>
         </div>

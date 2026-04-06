@@ -137,7 +137,7 @@
     </div>
     <button class="btn-anadir" onclick="abrirWizard()" style="margin:0 0 10px">
       <div class="btn-anadir-plus">+</div>
-      Nueva clase
+      Añadir clase
     </button>
 
     <!-- Buscador -->
@@ -610,8 +610,6 @@ function abrirWizard(){
   document.getElementById('bloque-auto-wrap').style.display='none';
   setHora('10:00');
   fillTipoClaseSelect('Grupo');
-  document.querySelectorAll('.estado-btn').forEach(b=>b.className='estado-btn');
-  document.querySelectorAll('.estado-btn')[0].classList.add('sel-Programada');
   const selEl = document.getElementById('cl-estado-sel');
   if(selEl) { selEl.value = _estadoSel; nselSync('cl-estado-sel'); }
   openSheet('wizard-overlay');
@@ -630,9 +628,6 @@ function abrirEditar(c){
   document.getElementById('cl-notas').value=c.notas||'';
   document.getElementById('cl-duracion').value=String(c.duracion||60);
   setHora(c.hora||'10:00');
-  document.querySelectorAll('.estado-btn').forEach(b=>b.className='estado-btn');
-  const btn=[...document.querySelectorAll('.estado-btn')].find(b=>b.textContent.includes(c.estado));
-  if(btn)btn.classList.add('sel-'+c.estado);
   if(!ESTADOS_SIMPLES.includes(c.estado)){
     _bloques=(c.clase_ejercicios||[]).map(b=>({ejercicio_id:b.ejercicio_id,nombre:b.ejercicios?.nombre||'',categoria:b.ejercicios?.categoria||'',orden:b.orden,duracion:b.duracion||'15 min',realizado:b.realizado!==false}));
   }
